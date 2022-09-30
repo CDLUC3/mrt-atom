@@ -1,0 +1,20 @@
+
+production:
+  ingest_service: "http://ingest.cdlib.org:33121/poster/submit/"
+  credentials:    "{!SSM: atom/atom-credential}"
+
+stage:
+  ingest_service: "http://ingest-stg.cdlib.org:33121/poster/submit/"
+  credentials:    "{!SSM: atom/atom-credential}"
+
+test:
+  ingest_service: "http://ingest.merritt.example.edu/poster/submit/"
+  credentials:    merritt:1212555
+
+docker:
+  ingest_service: "http://ingest:8080/ingest/poster/submit/"
+  credentials:    pretend-credentials
+
+development:
+  ingest_service: "http://ingest:8080/ingest/poster/submit/"
+  credentials:    pretend-credentials
