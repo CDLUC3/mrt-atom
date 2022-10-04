@@ -1,5 +1,7 @@
 #require 'rails'
 require 'time'
+require 'uri'
+require 'addressable'
 
 module Merritt
   module Atom

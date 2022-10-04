@@ -1,7 +1,8 @@
+require 'yaml'
+require 'uc3-ssm'
+
 module Merritt
   module Atom
-    require 'yaml'
-    require 'uc3-ssm'
 
     # noinspection RubyTooManyInstanceVariablesInspection
     class Harvester
@@ -80,7 +81,7 @@ module Merritt
 
       def ingest_client
         # TODO: validate config?
-        @ingest_client = @config.fetch(ENV.fetch('ATOM_ENV', 'test'), {}).fetch("ingest_service", "http://ingest.merritt.example.edu/poster/submit/")
+        @ingest_client ||= Mrt::Ingest::Client.new(@config.fetch(ENV.fetch('ATOM_ENV', 'test'), {}).fetch("ingest_service", "http://ingest.merritt.example.edu/poster/submit/"))
       end
 
       def credentials
