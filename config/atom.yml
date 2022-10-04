@@ -1,11 +1,27 @@
 
 production:
-  ingest_service: "http://ingest.cdlib.org:33121/poster/submit/"
+  ingest_service: "http://ingest-prd.cdlib.org:33121/poster/submit/"
   credentials:    "{!SSM: atom/atom-credential}"
+  adapter: mysql2
+  encoding: utf8mb4
+  host: "{!SSM: inv/db-host}"
+  database: "{!SSM: inv/db-name}"
+  pool: 20
+  port: 3306
+  username: "{!SSM: inv/readwrite/db-user}"
+  password: "{!SSM: inv/readwrite/db-password}"
 
 stage:
   ingest_service: "http://ingest-stg.cdlib.org:33121/poster/submit/"
   credentials:    "{!SSM: atom/atom-credential}"
+  adapter: mysql2
+  encoding: utf8mb4
+  host: "{!SSM: inv/db-host}"
+  database: "{!SSM: inv/db-name}"
+  pool: 20
+  port: 3306
+  username: "{!SSM: inv/readwrite/db-user}"
+  password: "{!SSM: inv/readwrite/db-password}"
 
 test:
   ingest_service: "http://ingest.merritt.example.edu/poster/submit/"

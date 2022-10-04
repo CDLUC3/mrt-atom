@@ -12,5 +12,10 @@ module Merritt
     require_relative 'atom/page_client'
     require_relative 'atom/harvester'
     require_relative 'atom/csh_generator'
+    require_relative 'atom/model/encoder'
+    require_relative 'atom/model/application_record'
+    require_relative 'atom/model/inv_collections_inv_object'
+    require_relative 'atom/model/inv_collection'
+    require_relative 'atom/model/inv_object'
   end
 end
