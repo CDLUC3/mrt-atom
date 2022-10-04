@@ -17,11 +17,11 @@ module Merritt
       REGISTRY_ID_REGEXP = /(?<=_)[0-9]+(?=\.atom$)/.freeze
 
       CSH_TEMPLATE = <<~ERB.freeze
-        setenv ATOM_ENV <%= environment %>
+        setenv ATOM_ENV <%= ENV.fetch('ATOM_ENV') %>
         setenv PATH /dpr2/local/bin:${PATH}
 
         set date = `date +%Y%m%d`
-        set base = /apps/dpr2/apps/atom
+        set base = /dpr2/apps/atom
 
         cd ${base}
 
@@ -46,10 +46,10 @@ module Merritt
         set log		= "${base}/logs/<%= environment %>-<%= registry_id %>-${profile}_${date}.log"
 
         # Log file
-        bundle exec rake "atom:update[${feedURL}, ${userAgent}, ${profile}, ${groupID}, ${updateFile}]" >& ${log} &
+        bundle exec rake --libdir lib --rakefile atom.rake "atom:update[${feedURL}, ${userAgent}, ${profile}, ${groupID}, ${updateFile}]" >& ${log} &
 
         # No log file
-        # bundle exec rake "atom:update[${feedURL}, ${userAgent}, ${profile}, ${groupID}, ${updateFile}]"
+        # bundle exec rake --libdir --rakefile atom.rake "atom:update[${feedURL}, ${userAgent}, ${profile}, ${groupID}, ${updateFile}]"
 
         exit
       ERB
