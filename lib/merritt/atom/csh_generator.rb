@@ -46,7 +46,7 @@ module Merritt
         set log		= "${base}/logs/<%= environment %>-<%= registry_id %>-${profile}_${date}.log"
 
         # Log file
-        bundle exec rake --libdir lib --rakefile atom.rake "atom:update[${feedURL}, ${userAgent}, ${profile}, ${groupID}, ${updateFile}]" >& ${log} &
+        bundle exec rake --libdir lib --rakefile atom.rake "atom:update[${feedURL}, ${userAgent}, ${profile}, ${groupID}, ${updateFile}]" >& ${log}
 
         # No log file
         # bundle exec rake --libdir --rakefile atom.rake "atom:update[${feedURL}, ${userAgent}, ${profile}, ${groupID}, ${updateFile}]"
