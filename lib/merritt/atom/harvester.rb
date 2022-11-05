@@ -13,14 +13,15 @@ module Merritt
       attr_reader :starting_point, :submitter, :profile, :collection_ark, :feed_update_file, :delay, :batch_size, :atom_updated
 
       # rubocop:disable Metrics/ParameterLists
-      def initialize(starting_point:, submitter:, profile:, collection_ark:, feed_update_file:, delay:, batch_size:)
-        @starting_point = starting_point
-        @submitter = submitter
-        @profile = profile
-        @collection_ark = collection_ark
-        @feed_update_file = feed_update_file
-        @delay = delay
-        @batch_size = batch_size
+      # def initialize(starting_point:, submitter:, profile:, collection_ark:, feed_update_file:, delay:, batch_size:)
+      def initialize(options)
+        @starting_point = options.fetch(:starting_point, "")
+        @submitter = options.fetch(:submitter, "")
+        @profile = options.fetch(:profile, "")
+        @collection_ark = options.fetch(:collection_ark, "")
+        @feed_update_file = options.fetch(:feed_update_file, "")
+        @delay = options.fetch(:delay, 60)
+        @batch_size = options.fetch(:batch_size, 1)
         @config = Uc3Ssm::ConfigResolver.new.resolve_file_values(file: 'config/atom.yml')
       end
       # rubocop:enable Metrics/ParameterLists
