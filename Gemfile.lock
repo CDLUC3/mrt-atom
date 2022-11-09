@@ -1,11 +1,12 @@
 GIT
   remote: https://github.com/CDLUC3/uc3-ssm
-  revision: 5af8578418e9f6563f68ad92af54350b25396846
-  branch: main
+  revision: 308d959d8ce243416bba2d870b22010927e2f5a2
+  branch: ruby3.0
   specs:
-    uc3-ssm (0.3.1)
+    uc3-ssm (0.3.5)
       aws-sdk-ssm (~> 1.84)
       logger (~> 1.4)
+      psych (< 4)
       yaml (~> 0.1)
 
 GEM
@@ -62,6 +63,7 @@ GEM
     nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    psych (3.3.4)
     public_suffix (5.0.0)
     racc (1.6.0)
     rake (13.0.6)
@@ -96,4 +98,4 @@ DEPENDENCIES
   uri
 
 BUNDLED WITH
-   2.1.4
+   2.3.25
