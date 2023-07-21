@@ -16,7 +16,7 @@ namespace :atom do
   # bundle exec rake atom:gen_csh['production',UCM Ramicova','https://s3.amazonaws.com/static.ucldc.cdlib.org/merritt/ucldc_collection_26098.atom','ucm_lib_nuxeo','ark:/13030/m5b58sn8','Merced Library Nuxeo collection']
   desc 'Generate CSH script for Atom feed harvesting'
   task :gen_csh, Merritt::Atom::CSHGenerator::ARG_KEYS do |_, task_args|
-    csh_source = Merritt::Atom::CSHGenerator.generate_csh(task_args.to_h)
+    csh_source = Merritt::Atom::CSHGenerator.generate_csh(task_args.to_hash)
     puts csh_source
   end
 

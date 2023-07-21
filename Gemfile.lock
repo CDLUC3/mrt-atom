@@ -11,12 +11,12 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    activemodel (7.0.4.1)
-      activesupport (= 7.0.4.1)
-    activerecord (7.0.4.1)
-      activemodel (= 7.0.4.1)
-      activesupport (= 7.0.4.1)
-    activesupport (7.0.4.1)
+    activemodel (7.0.4.3)
+      activesupport (= 7.0.4.3)
+    activerecord (7.0.4.3)
+      activemodel (= 7.0.4.3)
+      activesupport (= 7.0.4.3)
+    activesupport (7.0.4.3)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -75,15 +75,15 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
-    uri (0.11.1)
+    uri (0.12.2)
     yaml (0.2.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (= 7.0.4.1)
-  activesupport (= 7.0.4.1)
+  activerecord (= 7.0.4.3)
+  activesupport (= 7.0.4.3)
   addressable
   aws-sdk-ec2
   aws-sdk-ssm
@@ -94,7 +94,7 @@ DEPENDENCIES
   nokogiri (= 1.14.3)
   rake
   uc3-ssm (= 0.3.10)!
-  uri (= 0.11.1)
+  uri (= 0.12.2)
 
 BUNDLED WITH
    2.3.25

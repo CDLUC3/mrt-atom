@@ -95,14 +95,14 @@ module Merritt
         end
 
         # rubocop:disable Metrics/ParameterLists, Layout/LineLength
-        def generate_csh(environment:, nuxeo_collection_name:, feed_url:, merritt_collection_mnemonic:, merritt_collection_ark:, merritt_collection_name:)
+        def generate_csh(options)
           generator = CSHGenerator.new(
-            environment: environment,
-            nuxeo_collection_name: nuxeo_collection_name,
-            feed_url: feed_url,
-            merritt_collection_mnemonic: merritt_collection_mnemonic,
-            merritt_collection_ark: merritt_collection_ark,
-            merritt_collection_name: merritt_collection_name
+            environment: options[:environment],
+            nuxeo_collection_name: options[:nuxeo_collection_name],
+            feed_url: options[:feed_url],
+            merritt_collection_mnemonic: options[:merritt_collection_mnemonic],
+            merritt_collection_ark: options[:merritt_collection_ark],
+            merritt_collection_name: options[:merritt_collection_name]
           )
           generator.generate_csh
         end
