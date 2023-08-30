@@ -4,8 +4,8 @@ gem 'json'
 gem 'multi_json'
 gem 'nokogiri', '1.14.3'
 gem 'rake'
-gem 'activerecord', '7.0.4.3'
-gem "activesupport", "7.0.4.3"
+gem 'activerecord', '~> 7.0.7.1'
+gem "activesupport", "~> 7.0.7.1"
 gem 'mysql2'
 gem "uri", "0.12.2"
 gem 'addressable'
