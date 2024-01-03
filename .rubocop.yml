@@ -61,5 +61,6 @@ Layout/MultilineHashBraceLayout:
 AllCops:
   NewCops: enable
 
-Style/Documentation:
-  Enabled: false
+# PR has resolved all but the following
+# Style/Documentation:
+#   Enabled: false
