@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'nokogiri'
 
 module Merritt
@@ -125,7 +127,6 @@ module Merritt
         # TODO: why doesn't IObject actually use this, & if it did, how did it ever work?
         @archival_id ||= links.select { |u| u[:rel] == 'archival' }.first
       end
-
     end
   end
 end

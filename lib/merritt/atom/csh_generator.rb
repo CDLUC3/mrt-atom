@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 require 'erb'
 require 'ostruct'
@@ -16,7 +18,7 @@ module Merritt
       ARK_QUALIFIER_REGEXP = %r{(?<=/)[^/]+$}.freeze
       REGISTRY_ID_REGEXP = /(?<=_)[0-9]+(?=\.atom$)/.freeze
 
-      CSH_TEMPLATE = <<~ERB.freeze
+      CSH_TEMPLATE = <<~ERB
         setenv ATOM_ENV <%= ENV.fetch('ATOM_ENV') %>
         setenv PATH /dpr2/local/bin:${PATH}
 
@@ -55,10 +57,10 @@ module Merritt
       ERB
 
       attr_reader :collection_ark_qualifier, :registry_id, :environment, :nuxeo_collection_name,
-                  :feed_url, :merritt_collection_mnemonic, :merritt_collection_ark, :merritt_collection_name
+        :feed_url, :merritt_collection_mnemonic, :merritt_collection_ark, :merritt_collection_name
 
-      # rubocop:disable Metrics/ParameterLists
-      def initialize(environment:, nuxeo_collection_name:, feed_url:, merritt_collection_mnemonic:, merritt_collection_ark:, merritt_collection_name:)
+      def initialize(environment:, nuxeo_collection_name:, feed_url:, merritt_collection_mnemonic:,
+        merritt_collection_ark:, merritt_collection_name:)
         @environment = validate(environment, name: 'environment')
         @nuxeo_collection_name = validate(nuxeo_collection_name, name: 'nuxeo_collection_name')
         @feed_url = validate(feed_url, name: 'feed_url')
@@ -89,12 +91,10 @@ module Merritt
       end
 
       class << self
-
         def template
           @template ||= ERB.new(CSH_TEMPLATE)
         end
 
-        # rubocop:disable Metrics/ParameterLists, Layout/LineLength
         def generate_csh(options)
           generator = CSHGenerator.new(
             environment: options[:environment],
@@ -106,7 +106,6 @@ module Merritt
           )
           generator.generate_csh
         end
-        # rubocop:enable Metrics/ParameterLists, Layout/LineLength
 
         def sanitize_name(name)
           name.gsub(/[^A-Za-z0-9]+/, '-').gsub(/-+%/, '').gsub(/([a-z])-s/, '\\1s')
@@ -117,21 +116,20 @@ module Merritt
           CSV.parse(csv_data).each do |row|
             next if row.compact == []
 
-            environment, nuxeo_collection_name, feed_url, collection_mnemonic, collection_ark, merritt_collection_name = row[0...6]
             generator = CSHGenerator.new(
-              environment: environment,
-              nuxeo_collection_name: nuxeo_collection_name,
-              feed_url: feed_url,
-              merritt_collection_mnemonic: collection_mnemonic,
-              merritt_collection_ark: collection_ark,
-              merritt_collection_name: merritt_collection_name
+              environment: row[0],
+              nuxeo_collection_name: row[1],
+              feed_url: row[2],
+              merritt_collection_mnemonic: row[3],
+              merritt_collection_ark: row[4],
+              merritt_collection_name: row[5]
             )
             File.write(File.join(to_dir, generator.filename), generator.generate_csh)
             count += 1
           end
           count
         end
-              end
+      end
     end
   end
 end

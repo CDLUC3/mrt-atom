@@ -1,25 +1,26 @@
+# frozen_string_literal: true
+
 require 'yaml'
 require 'uc3-ssm'
 
 module Merritt
   module Atom
-
     # noinspection RubyTooManyInstanceVariablesInspection
     class Harvester
       include Merritt::Atom::Util
 
       ARG_KEYS = %i[starting_point submitter profile collection_ark feed_update_file].freeze
 
-      attr_reader :starting_point, :submitter, :profile, :collection_ark, :feed_update_file, :delay, :batch_size, :atom_updated
+      attr_reader :starting_point, :submitter, :profile, :collection_ark, :feed_update_file, :delay, :batch_size,
+        :atom_updated
 
-      # rubocop:disable Metrics/ParameterLists
       # def initialize(starting_point:, submitter:, profile:, collection_ark:, feed_update_file:, delay:, batch_size:)
       def initialize(options)
-        @starting_point = options.fetch(:starting_point, "")
-        @submitter = options.fetch(:submitter, "")
-        @profile = options.fetch(:profile, "")
-        @collection_ark = options.fetch(:collection_ark, "")
-        @feed_update_file = options.fetch(:feed_update_file, "")
+        @starting_point = options.fetch(:starting_point, '')
+        @submitter = options.fetch(:submitter, '')
+        @profile = options.fetch(:profile, '')
+        @collection_ark = options.fetch(:collection_ark, '')
+        @feed_update_file = options.fetch(:feed_update_file, '')
         @delay = options.fetch(:delay, 60)
         @batch_size = options.fetch(:batch_size, 1)
         @config = Uc3Ssm::ConfigResolver.new.resolve_file_values(file: 'config/atom.yml')
@@ -51,7 +52,8 @@ module Merritt
       end
 
       # rubocop:disable Metrics/ParameterLists
-      def new_ingest_object(local_id:, erc_who:, erc_what:, erc_when:, erc_where:, erc_when_created:, erc_when_modified:)
+      def new_ingest_object(local_id:, erc_who:, erc_what:, erc_when:, erc_where:, erc_when_created:,
+        erc_when_modified:)
         Mrt::Ingest::IObject.new(
           erc: {
             'who' => erc_who,
@@ -82,12 +84,14 @@ module Merritt
 
       def ingest_client
         # TODO: validate config?
-        @ingest_client ||= Mrt::Ingest::Client.new(@config.fetch(ENV.fetch('ATOM_ENV', 'test'), {}).fetch("ingest_service", "http://ingest.merritt.example.edu/poster/submit/"))
+        @ingest_client ||= Mrt::Ingest::Client.new(@config.fetch(ENV.fetch('ATOM_ENV', 'test'), {}).fetch(
+          'ingest_service', 'http://ingest.merritt.example.edu/poster/submit/'
+        ))
       end
 
       def credentials
         @credentials ||= begin
-          credentials_str = @config.fetch(ENV.fetch('ATOM_ENV', 'test'), {}).fetch("credentials", "pretend-credentials")
+          credentials_str = @config.fetch(ENV.fetch('ATOM_ENV', 'test'), {}).fetch('credentials', 'pretend-credentials')
           credentials_str ? credentials_str.split(':') : [nil, nil]
         end
       end
@@ -111,7 +115,6 @@ module Merritt
         @atom_updated = result.atom_updated
         process_from(result.next_page)
       end
-
     end
   end
 end

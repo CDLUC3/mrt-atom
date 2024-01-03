@@ -1,4 +1,6 @@
-#require 'rails'
+# frozen_string_literal: true
+
+# require 'rails'
 require 'time'
 require 'uri'
 require 'addressable'
@@ -26,7 +28,7 @@ module Merritt
         msg << ": #{exception}" if exception
         append_backtrace(msg, exception)
 
-        #(log = Rails.logger) && log.error(msg)
+        # (log = Rails.logger) && log.error(msg)
         warn(msg)
       end
 
@@ -53,7 +55,7 @@ module Merritt
       private
 
       def append_backtrace(msg, exception)
-        backtrace = (exception.respond_to?(:backtrace) && exception.backtrace)
+        backtrace = exception.respond_to?(:backtrace) && exception.backtrace
         return unless backtrace
 
         backtrace.each do |line|
