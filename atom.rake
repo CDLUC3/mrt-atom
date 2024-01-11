@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'merritt/atom'
 
 namespace :atom do
@@ -11,15 +13,18 @@ namespace :atom do
     processor.process_feed!
   end
 
+  # rubocop:disable Layout/LineLength
   # Usage example:
   #
   # bundle exec rake atom:gen_csh['production',UCM Ramicova','https://s3.amazonaws.com/static.ucldc.cdlib.org/merritt/ucldc_collection_26098.atom','ucm_lib_nuxeo','ark:/13030/m5b58sn8','Merced Library Nuxeo collection']
+  # rubocop:enable Layout/LineLength
   desc 'Generate CSH script for Atom feed harvesting'
   task :gen_csh, Merritt::Atom::CSHGenerator::ARG_KEYS do |_, task_args|
     csh_source = Merritt::Atom::CSHGenerator.generate_csh(task_args.to_hash)
     puts csh_source
   end
 
+  # rubocop:disable Layout/LineLength
   # The CSV file should be in the format:
   #
   # environment,nuxeo_collection_name,feed_url,merritt_collection_mnemonic,merritt_collection_ark,merritt_collection_name
@@ -27,6 +32,7 @@ namespace :atom do
   # Usage example:
   #
   # bundle exec rake atom:csv_to_csh[/tmp/feeds.csv,../mrt-dashboard-config/atom/bin]
+  # rubocop:enable Layout/LineLength
   desc 'Read the specified CSV file and write Atom feed harvest scripts to the specified directory'
   task :csv_to_csh, %i[csv_file to_dir] do |_, task_args|
     csv_data = File.read(task_args[:csv_file])

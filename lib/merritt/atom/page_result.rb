@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 module Merritt
   module Atom
     # The `<atom:updated/>` date from the feed and the URL of the next page, if any
     class PageResult
-
       attr_reader :atom_updated, :next_page
 
       def initialize(atom_updated:, next_page:)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Merritt
   module Atom
     # DEFAULT_DELAY = 300

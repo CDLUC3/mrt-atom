@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class InvObject < ApplicationRecord
   belongs_to :inv_owner
 
@@ -17,7 +19,7 @@ class InvObject < ApplicationRecord
   has_many(:inv_localids, foreign_key: 'inv_object_ark', primary_key: 'ark')
 
   # work around erc_ tables taking forever to load
-  scope :quickloadhack, -> {
+  scope :quickloadhack, lambda {
     columns = %w[
       inv_objects.id
       inv_objects.version_number
@@ -64,7 +66,9 @@ class InvObject < ApplicationRecord
 
   # :nocov:
   def dua_uri
-    URI.parse("#{APP_CONFIG['uri_1']}#{node_number}/#{inv_collection.to_param}/0/#{urlencode(APP_CONFIG['mrt_dua_file'])}")
+    uri = APP_CONFIG['uri_1'] << node_number << '/' << inv_collection.to_param << '/0/' <<
+          urlencode(APP_CONFIG['mrt_dua_file'])
+    URI.parse(uri)
   end
 
   # :nocov:
@@ -137,7 +141,7 @@ class InvObject < ApplicationRecord
     filecount = object_info_add_versions(json, maxfile)
 
     json['total_files'] = filecount
-    json['included_files'] = filecount > maxfile ? maxfile : filecount
+    json['included_files'] = [filecount, maxfile].min
 
     json
   end
@@ -247,7 +251,8 @@ class InvObject < ApplicationRecord
         (select count(*) from inv_nodes_inv_objects where inv_object_id = #{id}
           and replicated > date_add(now(), #{datestr}) and ifnull(completion_status, 'unknown') = 'unknown') +
           (select count(*) from inv_nodes_inv_objects where inv_object_id = #{id}
-            and replicated is null and replic_start > date_add(now(), #{datestr}) and ifnull(completion_status, 'unknown') = 'unknown') +
+            and replicated is null and replic_start > date_add(now(), #{datestr})
+            and ifnull(completion_status, 'unknown') = 'unknown') +
           (select count(*) from inv_nodes_inv_objects where inv_object_id = #{id}
             and replicated is null and replic_start is null and created > date_add(now(), #{datestr})
             and ifnull(completion_status, 'unknown') = 'unknown') as started,

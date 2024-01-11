@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class InvCollection < ApplicationRecord
   has_many :inv_collections_inv_objects
   has_many :inv_objects, through: :inv_collections_inv_objects
@@ -9,7 +11,7 @@ class InvCollection < ApplicationRecord
   end
 
   def group
-    @_group ||= Group.find(ark)
+    @group ||= Group.find(ark)
   end
 
   def recent_objects

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'nokogiri'
 
 module Merritt
@@ -15,7 +17,6 @@ module Merritt
       end
 
       # @return [PageResult] the `<atom:updated/>` value from the feed and the URL of the next page, if any
-      # rubocop:disable Metrics/AbcSize
       def process_xml!
         verify_collection_id!
         return if feed_up_to_date
@@ -42,7 +43,8 @@ module Merritt
         last_feed_update = harvester.last_feed_update
         up_to_date = current_feed_update < last_feed_update
       ensure
-        log_info("Feed update date #{current_feed_update} #{up_to_date ? 'older' : 'newer'} than last_feed_update #{last_feed_update}")
+        prefix = "Feed update date #{current_feed_update} #{up_to_date ? 'older' : 'newer'}"
+        log_info("#{prefix} than last_feed_update #{last_feed_update}")
       end
 
       def process_batch(batch)
