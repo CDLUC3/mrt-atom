@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Mark please add documentation
 class InvObject < ApplicationRecord
   belongs_to :inv_owner
 

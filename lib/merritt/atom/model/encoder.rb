@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'erb'
+# module for encodeing functions
 module Encoder
   def self.urlencode(item)
     ERB::Util.url_encode(item)

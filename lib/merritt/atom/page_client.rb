@@ -5,8 +5,11 @@ require 'rest-client'
 require 'time'
 require 'mrt/ingest'
 
+# module
 module Merritt
+  # module
   module Atom
+    # Mark please add documentation
     class PageClient
       include Merritt::Atom::Util
 

@@ -16,6 +16,7 @@ ActiveRecord::Base.establish_connection(
   }
 )
 
+# Mark please add documentation
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 end

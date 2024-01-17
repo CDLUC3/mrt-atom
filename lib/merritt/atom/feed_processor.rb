@@ -2,8 +2,11 @@
 
 require 'nokogiri'
 
+# module
 module Merritt
+  # module
   module Atom
+    # Mark please add documentation
     class FeedProcessor
       include Merritt::Atom::Util
 

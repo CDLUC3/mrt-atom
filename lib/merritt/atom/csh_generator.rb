@@ -4,8 +4,11 @@ require 'csv'
 require 'erb'
 require 'ostruct'
 
+# module
 module Merritt
+  # module
   module Atom
+    # Mark please add documentation
     class CSHGenerator
       ARG_KEYS = %i[
         environment

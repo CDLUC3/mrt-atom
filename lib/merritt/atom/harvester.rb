@@ -3,9 +3,12 @@
 require 'yaml'
 require 'uc3-ssm'
 
+# module
 module Merritt
+  # module
   module Atom
     # noinspection RubyTooManyInstanceVariablesInspection
+    # Mark please add documentation
     class Harvester
       include Merritt::Atom::Util
 
