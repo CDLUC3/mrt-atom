@@ -6,7 +6,7 @@ require 'nokogiri'
 module Merritt
   # module
   module Atom
-    # Mark please add documentation
+    # Process feed entries
     class EntryProcessor
       include Merritt::Atom::Util
 

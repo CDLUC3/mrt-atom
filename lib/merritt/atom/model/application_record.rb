@@ -16,7 +16,7 @@ ActiveRecord::Base.establish_connection(
   }
 )
 
-# Mark please add documentation
+# Use active record w/o rails
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 end

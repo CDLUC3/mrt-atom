@@ -8,7 +8,7 @@ module Merritt
   # module
   module Atom
     # noinspection RubyTooManyInstanceVariablesInspection
-    # Mark please add documentation
+    # Harvester entry point.  Initialize and process feed
     class Harvester
       include Merritt::Atom::Util
 

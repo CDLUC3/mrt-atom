@@ -6,7 +6,7 @@ require 'nokogiri'
 module Merritt
   # module
   module Atom
-    # Mark please add documentation
+    # Read ATOM feed and start processing
     class FeedProcessor
       include Merritt::Atom::Util
 

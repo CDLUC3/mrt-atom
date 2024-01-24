@@ -9,7 +9,7 @@ require 'mrt/ingest'
 module Merritt
   # module
   module Atom
-    # Mark please add documentation
+    # To do: Define classes' function (unsure mjr)
     class PageClient
       include Merritt::Atom::Util
 

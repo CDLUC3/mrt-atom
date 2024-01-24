@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Mark please add documentation
+# DB collection info
 class InvCollection < ApplicationRecord
   has_many :inv_collections_inv_objects
   has_many :inv_objects, through: :inv_collections_inv_objects

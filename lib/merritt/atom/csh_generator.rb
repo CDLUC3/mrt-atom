@@ -8,7 +8,7 @@ require 'ostruct'
 module Merritt
   # module
   module Atom
-    # Mark please add documentation
+    # Script generation for weekly processing
     class CSHGenerator
       ARG_KEYS = %i[
         environment
