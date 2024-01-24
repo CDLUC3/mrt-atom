@@ -5,8 +5,11 @@ require 'rest-client'
 require 'time'
 require 'mrt/ingest'
 
+# module
 module Merritt
+  # module
   module Atom
+    # To do: Define classes' function (unsure mjr)
     class PageClient
       include Merritt::Atom::Util
 

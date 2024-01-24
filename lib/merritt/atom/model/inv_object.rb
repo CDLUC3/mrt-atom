@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# DB info needed for processing feed
 class InvObject < ApplicationRecord
   belongs_to :inv_owner
 

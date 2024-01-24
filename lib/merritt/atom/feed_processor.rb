@@ -2,8 +2,11 @@
 
 require 'nokogiri'
 
+# module
 module Merritt
+  # module
   module Atom
+    # Read ATOM feed and start processing
     class FeedProcessor
       include Merritt::Atom::Util
 

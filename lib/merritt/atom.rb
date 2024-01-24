@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+# module
 module Merritt
+  # module
   module Atom
     # DEFAULT_DELAY = 300
     # DEFAULT_BATCH_SIZE = 10 # Can be problematic for George Fujimoto collection until Nuxeo server upgraded

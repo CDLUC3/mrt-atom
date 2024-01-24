@@ -5,8 +5,11 @@ require 'time'
 require 'uri'
 require 'addressable'
 
+# module
 module Merritt
+  # module
   module Atom
+    # module for untility classes
     module Util
       NS = {
         'atom' => 'http://www.w3.org/2005/Atom',

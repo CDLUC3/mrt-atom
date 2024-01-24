@@ -2,8 +2,11 @@
 
 require 'nokogiri'
 
+# module
 module Merritt
+  # module
   module Atom
+    # Process feed entries
     class EntryProcessor
       include Merritt::Atom::Util
 
