@@ -16,4 +16,5 @@ Rake
 
 ## Internal Links
 - https://github.com/CDLUC3/mrt-doc-private/blob/main/uc3-mrt-atom.md
+- https://github.com/CDLib/mrt-dashboard-config
 
