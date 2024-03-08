@@ -8,7 +8,7 @@ gem 'addressable'
 gem 'json'
 gem 'multi_json'
 gem 'mysql2'
-gem 'nokogiri', '1.14.3'
+gem "nokogiri", ">= 1.16.2"
 gem 'rake'
 gem 'uri', '0.12.2'
 
