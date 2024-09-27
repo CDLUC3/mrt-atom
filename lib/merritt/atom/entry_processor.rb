@@ -82,7 +82,7 @@ module Merritt
         checksum = xpath_content(link, 'opensearch:checksum')
         digest = to_digest(checksum)
 
-        name = link['href'].sub(%r{^https?://}, '')
+        name = link['href'].sub(%r{^https?://}, '').sub(/\?changeToken=.*/, '')
 
         # TODO: do we even support prefetch any more?
         obj.add_component(uri, name: name, digest: digest, prefetch: true, prefetch_options: PREFETCH_OPTIONS)
