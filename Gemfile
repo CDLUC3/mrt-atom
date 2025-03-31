@@ -2,15 +2,15 @@
 
 source 'http://rubygems.org'
 
-gem 'activerecord', '~> 7.0.7.1'
-gem 'activesupport', '~> 7.0.7.1'
+gem 'activerecord'
+gem 'activesupport'
 gem 'addressable'
 gem 'json'
 gem 'multi_json'
 gem 'mysql2'
-gem 'nokogiri', '>= 1.18.3'
+gem 'nokogiri'
 gem 'rake'
-gem 'uri', '0.12.4'
+gem 'uri'
 
 gem 'aws-sdk-ec2'
 gem 'aws-sdk-ssm'
