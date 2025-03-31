@@ -18,8 +18,8 @@ module Merritt
         merritt_collection_ark
         merritt_collection_name
       ].freeze
-      ARK_QUALIFIER_REGEXP = %r{(?<=/)[^/]+$}.freeze
-      REGISTRY_ID_REGEXP = /(?<=_)[0-9]+(?=\.atom$)/.freeze
+      ARK_QUALIFIER_REGEXP = %r{(?<=/)[^/]+$}
+      REGISTRY_ID_REGEXP = /(?<=_)[0-9]+(?=\.atom$)/
 
       CSH_TEMPLATE = <<~ERB
         setenv ATOM_ENV <%= ENV.fetch('ATOM_ENV') %>
