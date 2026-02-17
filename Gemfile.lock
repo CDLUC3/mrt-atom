@@ -31,8 +31,8 @@ GEM
       public_suffix (>= 2.0.2, < 8.0)
     ast (2.4.3)
     aws-eventstream (1.4.0)
-    aws-partitions (1.1201.0)
-    aws-sdk-core (3.241.3)
+    aws-partitions (1.1214.0)
+    aws-sdk-core (3.242.0)
       aws-eventstream (~> 1, >= 1.3.0)
       aws-partitions (~> 1, >= 1.992.0)
       aws-sigv4 (~> 1.9)
@@ -40,11 +40,11 @@ GEM
       bigdecimal
       jmespath (~> 1, >= 1.6.1)
       logger
-    aws-sdk-ec2 (1.589.0)
-      aws-sdk-core (~> 3, >= 3.241.3)
+    aws-sdk-ec2 (1.602.0)
+      aws-sdk-core (~> 3, >= 3.241.4)
       aws-sigv4 (~> 1.5)
-    aws-sdk-ssm (1.209.0)
-      aws-sdk-core (~> 3, >= 3.241.3)
+    aws-sdk-ssm (1.210.0)
+      aws-sdk-core (~> 3, >= 3.241.4)
       aws-sigv4 (~> 1.5)
     aws-sigv4 (1.12.1)
       aws-eventstream (~> 1, >= 1.0.2)
@@ -60,14 +60,14 @@ GEM
     i18n (1.14.8)
       concurrent-ruby (~> 1.0)
     jmespath (1.6.2)
-    json (2.18.0)
+    json (2.18.1)
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
     logger (1.7.0)
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2025.0924)
+    mime-types-data (3.2026.0203)
     mini_portile2 (2.8.9)
     minitest (6.0.1)
       prism (~> 1.5)
@@ -77,14 +77,14 @@ GEM
     mysql2 (0.5.7)
       bigdecimal
     netrc (0.11.0)
-    nokogiri (1.19.0)
+    nokogiri (1.19.1)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     parallel (1.27.0)
-    parser (3.3.10.0)
+    parser (3.3.10.2)
       ast (~> 2.4.1)
       racc
-    prism (1.7.0)
+    prism (1.9.0)
     public_suffix (7.0.2)
     racc (1.8.1)
     rainbow (3.1.1)
@@ -95,7 +95,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rubocop (1.82.1)
+    rubocop (1.84.2)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -103,7 +103,7 @@ GEM
       parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 2.9.3, < 3.0)
-      rubocop-ast (>= 1.48.0, < 2.0)
+      rubocop-ast (>= 1.49.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
     rubocop-ast (1.49.0)
@@ -139,4 +139,4 @@ DEPENDENCIES
   uri
 
 BUNDLED WITH
-  4.0.3
+  4.0.6
