@@ -20,8 +20,8 @@ stage:
   database: "{!SSM: inv/db-name}"
   pool: 20
   port: 3306
-  username: "{!SSM: inv/readwrite/db-user}"
-  password: "{!SSM: inv/readwrite/db-password}"
+  username: "{!SSM: inv/readonly/db-user}"
+  password: "{!SSM: inv/readonly/db-password}"
 
 test:
   ingest_service: "http://ingest.merritt.example.edu/poster/submit/"
