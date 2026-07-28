@@ -1,6 +1,21 @@
 # Merritt Atom Harvester
 
+This microservice is part of the [Merritt Preservation System](https://github.com/CDLUC3/mrt-doc).
+
+## Purpose
+
 This standalone process builds collection-specific scripts that harvest Nuxeo Atom feeds for Merritt processing.
+
+## Running in ECS
+
+Run the following to ensure that you have up to date nuxeo config entries.
+
+```bash
+cd /mrt-atom
+git fetch
+git pull
+aws s3 sync "s3://${S3CONFIG_BUCKET}/uc3/mrt/mrt-ingest-profiles/nuxeo/" bin
+```
 
 ## Dependencies
 
