@@ -12,7 +12,7 @@ production:
   password: "{!SSM: inv/readonly/db-password}"
 
 stage:
-  ingest_service: "http://ingestint.mrt-ecs-stg.uc3stg.cdlib.net/ingest/poster/submit/"
+  ingest_service: "https://ingestint.mrt-ecs-stg.uc3stg.cdlib.net/ingest/poster/submit/"
   credentials:    "{!SSM: atom/atom-credential}"
   adapter: mysql2
   encoding: utf8mb4
