@@ -1,7 +1,7 @@
 
 setenv ATOM_ENV stage
-set base = /dpr2/apps/atom
-setenv PATH /dpr2/local/bin:${PATH}
+set base = /mrt-atom/
+setenv PATH /mrt-atom/bin:${PATH}
 cd ${base}
 
 set echo

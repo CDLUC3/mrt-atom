@@ -23,10 +23,10 @@ module Merritt
 
       CSH_TEMPLATE = <<~ERB
         setenv ATOM_ENV <%= ENV.fetch('ATOM_ENV') %>
-        setenv PATH /dpr2/local/bin:${PATH}
+        setenv PATH /mrt-atom/bin:${PATH}
 
         set date = `date +%Y%m%d`
-        set base = /dpr2/apps/atom
+        set base = /mrt-atom/
 
         cd ${base}
 
@@ -47,7 +47,7 @@ module Merritt
         set userAgent	= "Atom processor/<%= merritt_collection_name %>"
         set profile	= "<%= merritt_collection_mnemonic %>_content"
         set groupID	= "<%= merritt_collection_ark %>"
-        set updateFile	= "/dpr2/apps/atom/LastUpdate/lastFeedUpdate_<%= registry_id %>-<%= collection_ark_qualifier %>"
+        set updateFile	= "/mrt-atom/LastUpdate/lastFeedUpdate_<%= registry_id %>-<%= collection_ark_qualifier %>"
         set log		= "${base}/logs/<%= environment %>-<%= registry_id %>-${profile}_${date}.log"
 
         # Log file

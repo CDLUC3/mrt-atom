@@ -100,7 +100,7 @@ module Merritt
       end
 
       def pause_file_path
-        @pause_file_path ||= "#{Dir.home}/dpr2/apps/atom/PAUSE_ATOM_#{profile}"
+        @pause_file_path ||= "/mrt-atom/PAUSE_ATOM_#{profile}"
       end
 
       def process_from(page_url)
