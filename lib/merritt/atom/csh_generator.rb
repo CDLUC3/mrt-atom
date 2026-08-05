@@ -23,10 +23,11 @@ module Merritt
 
       CSH_TEMPLATE = <<~ERB
         setenv ATOM_ENV <%= ENV.fetch('ATOM_ENV') %>
-        setenv PATH /mrt-atom/bin:${PATH}
+        setenv NUXEO_DIR /merritt-filesys/nuxeo/mrt-atom
+        setenv PATH ${NUXEO_DIR}/bin:${PATH}
 
         set date = `date +%Y%m%d`
-        set base = /mrt-atom/
+        set base = ${NUXEO_DIR}
 
         cd ${base}
 
@@ -47,7 +48,7 @@ module Merritt
         set userAgent	= "Atom processor/<%= merritt_collection_name %>"
         set profile	= "<%= merritt_collection_mnemonic %>_content"
         set groupID	= "<%= merritt_collection_ark %>"
-        set updateFile	= "/mrt-atom/LastUpdate/lastFeedUpdate_<%= registry_id %>-<%= collection_ark_qualifier %>"
+        set updateFile	= "${NUXEO_DIR}/LastUpdate/lastFeedUpdate_<%= registry_id %>-<%= collection_ark_qualifier %>"
         set log		= "${base}/logs/<%= environment %>-<%= registry_id %>-${profile}_${date}.log"
 
         # Log file

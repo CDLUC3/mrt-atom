@@ -1,7 +1,8 @@
 
 setenv ATOM_ENV stage
-set base = /mrt-atom/
-setenv PATH /mrt-atom/bin:${PATH}
+setenv NUXEO_DIR /merritt-filesys/nuxeo/mrt-atom
+set base = ${NUXEO_DIR}
+setenv PATH ${NUXEO_DIR}/bin:${PATH}
 cd ${base}
 
 set echo

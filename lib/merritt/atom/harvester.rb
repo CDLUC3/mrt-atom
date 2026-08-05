@@ -12,6 +12,7 @@ module Merritt
     class Harvester
       include Merritt::Atom::Util
 
+      NUXEO_DIR = '/merritt-filesys/nuxeo/mrt-atom'.freeze
       ARG_KEYS = %i[starting_point submitter profile collection_ark feed_update_file].freeze
 
       attr_reader :starting_point, :submitter, :profile, :collection_ark, :feed_update_file, :delay, :batch_size,
@@ -100,7 +101,7 @@ module Merritt
       end
 
       def pause_file_path
-        @pause_file_path ||= "/mrt-atom/PAUSE_ATOM_#{profile}"
+        @pause_file_path ||= "#{NUXEO_DIR}/PAUSE_ATOM_#{profile}"
       end
 
       def process_from(page_url)
