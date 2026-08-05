@@ -12,7 +12,7 @@ module Merritt
     class Harvester
       include Merritt::Atom::Util
 
-      NUXEO_DIR = '/merritt-filesys/nuxeo/mrt-atom'.freeze
+      NUXEO_DIR = '/merritt-filesys/nuxeo/mrt-atom'
       ARG_KEYS = %i[starting_point submitter profile collection_ark feed_update_file].freeze
 
       attr_reader :starting_point, :submitter, :profile, :collection_ark, :feed_update_file, :delay, :batch_size,
