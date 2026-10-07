@@ -1,6 +1,6 @@
 
 production:
-  ingest_service: "http://ingest-prd.cdlib.org:33121/poster/submit/"
+  ingest_service: "https://ingestint.mrt-ecs-prd.uc3prd.cdlib.net/ingest/poster/submit/"
   credentials:    "{!SSM: atom/atom-credential}"
   adapter: mysql2
   encoding: utf8mb4
