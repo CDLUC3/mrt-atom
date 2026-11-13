@@ -6,7 +6,7 @@ module Merritt
   module Atom
     # DEFAULT_DELAY = 300
     # DEFAULT_BATCH_SIZE = 10 # Can be problematic for George Fujimoto collection until Nuxeo server upgraded
-    DEFAULT_DELAY = 60
+    DEFAULT_DELAY = 30
     DEFAULT_BATCH_SIZE = 1
 
     require_relative 'atom/util'
